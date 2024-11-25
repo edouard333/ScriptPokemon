@@ -1,28 +1,40 @@
 package com.phenix.scriptpokemon;
 
+import com.phenix.scriptpokemon.choix.Touche;
 import java.awt.AWTException;
 import java.awt.Robot;
 
 /**
  * On veut ajouter des fonctionnalités (ou des raccourcis) pour Robot.
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class SuperRobot extends Robot {
+public final class SuperRobot extends Robot {
 
+    /**
+     *
+     */
     public final Dialogue dialogue;
 
+    /**
+     *
+     */
     public final Image image;
 
+    /**
+     *
+     */
     public final Deplacement deplacement;
 
+    /**
+     *
+     * @throws AWTException
+     */
     public SuperRobot() throws AWTException {
         super();
 
         this.dialogue = new Dialogue(this);
-
         this.image = new Image(this);
-
         this.deplacement = new Deplacement(this);
     }
 
@@ -32,7 +44,7 @@ public class SuperRobot extends Robot {
      * @param touche
      * @param delais
      */
-    public void press(int touche, int delais) {
+    public void press(Touche touche, int delais) {
         press(touche, delais, null);
     }
 
@@ -43,12 +55,12 @@ public class SuperRobot extends Robot {
      * @param delais Temps où on reste appuyé sur la touche.
      * @param message Si on affiche un message par rapport à cette action.
      */
-    public void press(int touche, int delais, String message) {
+    public void press(Touche touche, int delais, String message) {
         if (message != null) {
             System.out.println(message + ", Press : " + touche);
         }
-        this.keyPress(touche);
+        this.keyPress(touche.valeur);
         this.delay(delais);
-        this.keyRelease(touche);
+        this.keyRelease(touche.valeur);
     }
 }

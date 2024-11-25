@@ -5,10 +5,13 @@ import com.phenix.scriptpokemon.choix.Touche;
 /**
  * Gestion des dialogues.
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class Dialogue {
+public final class Dialogue {
 
+    /**
+     *
+     */
     private final static int DELAIS_TOUCHE = 200;
 
     /**
@@ -38,14 +41,12 @@ public class Dialogue {
      * @param texte Les actions pour ce dialogue.
      */
     public void dialogue(PasserTexteDTO[] texte) {
-        for (int i = 0; i < texte.length; i++) {
-            robot.delay(texte[i].delais);
-
-            if (texte[i].image != null) {
-                this.image.getImage(texte[i].image);
+        for (PasserTexteDTO texte1 : texte) {
+            robot.delay(texte1.delais);
+            if (texte1.image != null) {
+                this.image.getImage(texte1.image);
             }
-
-            this.robot.press(Touche.A, DELAIS_TOUCHE, texte[i].message);
+            this.robot.press(Touche.A, DELAIS_TOUCHE, texte1.message);
         }
     }
 }

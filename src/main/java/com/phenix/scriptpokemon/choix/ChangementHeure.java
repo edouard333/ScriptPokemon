@@ -2,10 +2,10 @@ package com.phenix.scriptpokemon.choix;
 
 /**
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class ChangementHeure {
+public enum ChangementHeure {
 
-    public static final int ETE = 0;
-    public static final int HIVER = 0;
+    ETE,
+    HIVER;
 }

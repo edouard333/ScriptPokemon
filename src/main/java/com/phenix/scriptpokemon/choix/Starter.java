@@ -3,13 +3,17 @@ package com.phenix.scriptpokemon.choix;
 /**
  * Choix des starters du jeu.
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class Starter {
+public enum Starter {
 
-    public static final int HERICENDRE = 0;
+    HERICENDRE(0),
+    GERMIGNON(1),
+    KAIMINUS(2);
 
-    public static final int GERMIGNON = 1;
+    public final int valeur;
 
-    public static final int KAIMINUS = 2;
+    private Starter(int valeur) {
+        this.valeur = valeur;
+    }
 }

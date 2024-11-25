@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Script qui joue à Pokémon 2G (pour l'instant que depuis le début).
  *
- * @author Edouard Jeanjean
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
 public class Main {
 
@@ -23,15 +23,14 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-
         // Choix qu'on fait pour le jeu :
-        int sexe = Sexe.GARCON;
+        Sexe sexe = Sexe.GARCON;
         int heure = 9;
         int minute = 20;
         String nom = "Jean";
-        int jour = Jour.LUNDI;
-        int changement_heure = ChangementHeure.ETE;
-        int starter = Starter.HERICENDRE;
+        Jour jour = Jour.LUNDI;
+        ChangementHeure changement_heure = ChangementHeure.ETE;
+        Starter starter = Starter.HERICENDRE;
 
         try {
             SuperRobot robot = new SuperRobot();
@@ -104,7 +103,7 @@ public class Main {
                 robot.delay(3600);
 
                 // Sortir chambre :
-                robot.deplacement.deplacement(new int[]{
+                robot.deplacement.deplacement(new Touche[]{
                     Touche.DROITE, // Sprite vers la droite.
                     Touche.DROITE,
                     Touche.DROITE,
@@ -122,7 +121,7 @@ public class Main {
                 robot.image.getImage("34_touche-bas_salon");
 
                 // Aller vers maman :
-                robot.deplacement.deplacement(new int[]{
+                robot.deplacement.deplacement(new Touche[]{
                     Touche.BAS,
                     Touche.BAS,
                     Touche.BAS
@@ -168,7 +167,7 @@ public class Main {
                 robot.image.getImage("51_maman_assise");
             }
 
-            robot.deplacement.deplacement(new int[]{
+            robot.deplacement.deplacement(new Touche[]{
                 Touche.BAS, // Sprite vers le bas.
                 Touche.BAS,
                 Touche.BAS,
@@ -187,7 +186,7 @@ public class Main {
             // Sorti maison.
 
             // Aller jusque professeur Orme :
-            robot.deplacement.deplacement(new int[]{
+            robot.deplacement.deplacement(new Touche[]{
                 Touche.GAUCHE, // Sprite à gauche.
                 Touche.GAUCHE,
                 Touche.GAUCHE,
@@ -267,7 +266,7 @@ public class Main {
                 new PasserTexteDTO(2100, "compte sur toi", "91_compte-sur-toi")
             });
 
-            robot.deplacement.deplacement(new int[]{
+            robot.deplacement.deplacement(new Touche[]{
                 Touche.BAS, // Sprite bas.
                 Touche.BAS,
                 Touche.BAS,
@@ -291,7 +290,7 @@ public class Main {
             // Après scientifique.
             // == ICI : LIBRE !!! ==
             // Sort maison Orme :
-            robot.deplacement.deplacement(new int[]{
+            robot.deplacement.deplacement(new Touche[]{
                 Touche.BAS,
                 Touche.BAS,
                 Touche.BAS,
@@ -301,7 +300,7 @@ public class Main {
             robot.delay(700); // Animation sortie salle.
 
             // De la maison Orme à la route 29 :
-            robot.deplacement.deplacement(new int[]{
+            robot.deplacement.deplacement(new Touche[]{
                 Touche.BAS,
                 Touche.BAS,
                 Touche.BAS,
@@ -324,7 +323,7 @@ public class Main {
             });
 
             // Aller dans les buissons.
-            robot.deplacement.deplacement(new int[]{
+            robot.deplacement.deplacement(new Touche[]{
                 Touche.GAUCHE,
                 Touche.GAUCHE,
                 Touche.GAUCHE,
@@ -349,20 +348,20 @@ public class Main {
      * @param robot Robot qui contrôle les actions.
      * @param starter Le starter Pokémon qu'on choisit.
      */
-    private static void choixPokemon(SuperRobot robot, int starter) {
+    private static void choixPokemon(SuperRobot robot, Starter starter) {
 
         // Prendre Pokémon (Héricendre) :
         switch (starter) {
-            case Starter.HERICENDRE:
-                robot.deplacement.deplacement(new int[]{
+            case HERICENDRE:
+                robot.deplacement.deplacement(new Touche[]{
                     Touche.DROITE,
                     Touche.DROITE,
                     Touche.HAUT
                 });
                 break;
 
-            case Starter.GERMIGNON:
-                robot.deplacement.deplacement(new int[]{
+            case GERMIGNON:
+                robot.deplacement.deplacement(new Touche[]{
                     Touche.DROITE,
                     Touche.DROITE,
                     Touche.DROITE,
@@ -371,8 +370,8 @@ public class Main {
                 });
                 break;
 
-            case Starter.KAIMINUS:
-                robot.deplacement.deplacement(new int[]{
+            case KAIMINUS:
+                robot.deplacement.deplacement(new Touche[]{
                     Touche.DROITE,
                     Touche.DROITE,
                     Touche.DROITE,
@@ -420,7 +419,7 @@ public class Main {
      * @param robot Robot qui contrôle les actions.
      * @param sexe Le sexe qu'on choisit.
      */
-    private static void choixSexe(SuperRobot robot, int sexe) {
+    private static void choixSexe(SuperRobot robot, Sexe sexe) {
         robot.delay(3500);
 
         if (sexe == Sexe.FILLE) {
@@ -463,7 +462,6 @@ public class Main {
         // "A" pour "heure-question" :
         //robot.image.getImage("08_touche-a_heure-question");
         //robot.press(Touche.A, 200, "heure-question");
-
         robot.delay(2000);
 
         // Par défaut, l'heure est sur 10h.
@@ -487,8 +485,7 @@ public class Main {
 
         // "A" pour "minute-question" :
         //robot.image.getImage("10_touche-a_minute-question");
-       // robot.press(Touche.A, 200, "minute-question");
-
+        // robot.press(Touche.A, 200, "minute-question");
         robot.delay(1500);
 
         // Minute par défaut sur 0:
@@ -567,8 +564,7 @@ public class Main {
      * @param jour Jour de la semaine.
      * @param changement_heure Quel changement d'heure on est.
      */
-    private static void choixJour(SuperRobot robot, int jour, int changement_heure) {
-
+    private static void choixJour(SuperRobot robot, Jour jour, ChangementHeure changement_heure) {
         robot.press(Touche.A, 1400, "question jour");
 
         // TODO : ici choix jour.

@@ -4,24 +4,32 @@ import com.phenix.scriptpokemon.choix.Touche;
 
 /**
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class Combat {
+public final class Combat {
 
     /**
      * Numéro de combat, juste utile quand on veut faire des printscreens.
      */
     private int numero_combat;
 
+    /**
+     *
+     */
     private final SuperRobot robot;
 
+    /**
+     *
+     */
     private final Image image;
 
+    /**
+     *
+     * @param robot
+     */
     public Combat(SuperRobot robot) {
         this.robot = robot;
-
         this.numero_combat = 0;
-
         this.image = new Image(robot);
     }
 

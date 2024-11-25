@@ -3,11 +3,16 @@ package com.phenix.scriptpokemon.choix;
 /**
  * Choix des sexe du jeu.
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class Sexe {
+public enum Sexe {
 
-    public final static int GARCON = 0;
+    GARCON(0),
+    FILLE(1);
 
-    public final static int FILLE = 1;
+    public final int valeur;
+
+    private Sexe(int valeur) {
+        this.valeur = valeur;
+    }
 }

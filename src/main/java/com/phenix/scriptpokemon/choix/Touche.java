@@ -5,50 +5,55 @@ import java.awt.event.KeyEvent;
 /**
  * Touches possibles dans le jeu.
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class Touche {
+public enum Touche {
 
     /**
      * Touche pour "A".
      */
-    public static final int A = KeyEvent.VK_W;
-
+    A(KeyEvent.VK_W),
     /**
      * Touche pour "B".<br>
      * TODO : A définir.
+     *
+     * @deprecated
      */
-    public static int B;
-
+    B(-666),
     /**
      * Touche pour "haut".
      */
-    public static final int HAUT = KeyEvent.VK_UP;
-
+    HAUT(KeyEvent.VK_UP),
     /**
      * Touche pour "bas".
      */
-    public static final int BAS = KeyEvent.VK_DOWN;
-
+    BAS(KeyEvent.VK_DOWN),
     /**
      * Touche pour "gauche".
      */
-    public static final int GAUCHE = KeyEvent.VK_LEFT;
-
+    GAUCHE(KeyEvent.VK_LEFT),
     /**
      * Touche pour "droite".
      */
-    public static final int DROITE = KeyEvent.VK_RIGHT;
-
+    DROITE(KeyEvent.VK_RIGHT),
     /**
      * Touche pour "start".<br>
      * TODO : à définir.
+     *
+     * @deprecated
      */
-    public static int START;
-
+    START(-666),
     /**
      * Touche pour "Select".<br>
      * TODO : a définir.
+     *
+     * @deprecated
      */
-    public static int SELECT;
+    SELECT(-666);
+
+    public final int valeur;
+
+    private Touche(int valeur) {
+        this.valeur = valeur;
+    }
 }

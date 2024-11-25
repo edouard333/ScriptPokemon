@@ -2,9 +2,9 @@ package com.phenix.scriptpokemon;
 
 /**
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class PasserTexteDTO {
+public final class PasserTexteDTO {
 
     /**
      * Attend x mili-seconde avant de faire l'action.

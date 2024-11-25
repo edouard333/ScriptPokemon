@@ -9,14 +9,24 @@ import javax.imageio.ImageIO;
 
 /**
  *
- * @author Edouard
+ * @author <a href="mailto:edouard128@hotmail.com">Edouard Jeanjean</a>
  */
-public class Image {
+public final class Image {
 
+    /**
+     *
+     */
     private static final String DOSSIER = "C:\\_OUTPUT\\";
 
+    /**
+     *
+     */
     private final SuperRobot robot;
 
+    /**
+     *
+     * @param robot
+     */
     public Image(SuperRobot robot) {
         this.robot = robot;
     }
